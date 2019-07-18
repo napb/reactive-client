@@ -10,12 +10,12 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/reactive-client")
 public class Controlador {
 
-    WebClient client = WebClient.create("http://localhost:8081");
+    WebClient client = WebClient.create("http://localhost:8181");
 
     @GetMapping("/getMonoClient")
     public void get(){
         Mono<ObjetoDominio> objetoDominioMono = client.get()
-                .uri("/obtenerMono")
+                .uri("/controlador/obtenerMono")
                 .retrieve()
                 .bodyToMono(ObjetoDominio.class);
 
